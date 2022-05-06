@@ -1,0 +1,22 @@
+version: '3'
+services:
+  proxy:
+    image: localhost/nginx-proxy:latest
+    build:
+      context: ./proxy
+    restart: always
+    volumes:
+      - data:/data
+    ports:
+      - 3000:443
+    depends_on:
+      - app
+  app:
+    image: localhost/app:latest
+    build:
+      context: ./app
+    volumes:
+      - data:/data
+
+volumes:
+  data:
