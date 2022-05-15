@@ -18,5 +18,10 @@ services:
     volumes:
       - data:/data
 
+  db:
+    image: mariadb:latest
+    environment:
+      MARIADB_ROOT_PASSWORD: default_password
+
 volumes:
   data:
